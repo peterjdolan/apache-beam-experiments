@@ -65,5 +65,6 @@ result.wait_until_finish()
 
 logging.info("Pipeline finished.")
 logging.info("Input: %s", input)
-logging.info("Visible output: %s", visible_list)
-assert input == visible_list
+with lock:
+  logging.info("Visible output: %s", visible_list)
+  assert input == visible_list
